@@ -16,7 +16,7 @@ class Solution(object):
                 return [map[t1], i]
 
 
-Approach - since we are required to return the indexes of both the elements, ive used  a typical hashing technique
+Approach - since we are required to return the indexes of both the elements, ive used a typical hashing technique
 
 1. Loop through the elements
 2. Subtract each element from the target and if the subtracted value is present , we return the index

@@ -1,0 +1,23 @@
+Problem Link - https://leetcode.com/problems/two-sum/
+
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        map = {}
+        for i in range(len(nums)):
+            t1 = target - nums[i]
+            if t1 not in map:
+                map[nums[i]] = i
+            elif t1 in map:
+                return [map[t1], i]
+
+
+Approach - since we are required to return the indexes of both the elements, ive used  a typical hashing technique
+
+1. Loop through the elements
+2. Subtract each element from the target and if the subtracted value is present , we return the index
+3. use a dictionary to store the elements and the indexes of the array.

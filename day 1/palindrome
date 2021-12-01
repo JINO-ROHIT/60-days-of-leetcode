@@ -1,0 +1,20 @@
+Problem Link - https://leetcode.com/problems/palindrome-number/
+
+class Solution(object):
+    def isPalindrome(self, x):
+        """
+        :type x: int
+        :rtype: bool
+        """
+        if '-' in str(x):
+            return False
+        rev_num = 0
+        y = x
+        while(y != 0):
+            last_digit = y % 10
+            rev_num  = rev_num * 10 + last_digit
+            y = y // 10
+        if x == rev_num:
+            return True
+        else:
+            return False

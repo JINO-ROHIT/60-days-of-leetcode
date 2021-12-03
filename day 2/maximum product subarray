@@ -1,0 +1,22 @@
+https://leetcode.com/problems/maximum-product-subarray/
+
+class Solution(object):
+    def maxProduct(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        max_prod, min_prod, ans = nums[0], nums[0], nums[0]
+        for i in range(1, len(nums)):
+            x = max(nums[i], max_prod*nums[i], min_prod*nums[i])
+            y = min(nums[i], max_prod*nums[i], min_prod*nums[i])            
+            max_prod, min_prod = x, y
+            ans = max(max_prod, ans)
+        return ans
+
+the key is in accomodating the negative and the zero values, so we have to take care of 3 things
+1. normally keep multiplying elements, works for +ve
+2. for negative keep a track of the min value cause when the curr element and negative both are zero, it becomes zero
+3. the curr element could become the start of the sub-array
+
+better explanation - https://leetcode.com/problems/maximum-product-subarray/discuss/48276/Python-solution-with-detailed-explanation

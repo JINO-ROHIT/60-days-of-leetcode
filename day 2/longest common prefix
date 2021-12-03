@@ -1,0 +1,23 @@
+https://leetcode.com/problems/longest-common-prefix/
+
+class Solution(object):
+    def longestCommonPrefix(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: str
+        """
+        result = ""
+        total_lengths = [len(ele) for ele in strs]
+        length_to_check_upto = min(total_lengths)
+        
+        for i in range(0, length_to_check_upto + 1):
+            sample_ref = strs[0][:i]
+            for ele in strs:
+                if ele[:i] != sample_ref:
+                    return result
+            result = sample_ref
+        return result
+
+1. take the min length among the elements so that you know where the longest prefix can possibly end
+2. take the first element(or any element) as a reference and run a loop from position 0 and check for each element iteratively.
+3. if the condition fails return ""

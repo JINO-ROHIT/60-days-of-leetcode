@@ -1,0 +1,17 @@
+Problem Link - https://leetcode.com/problems/length-of-last-word/
+
+class Solution(object):
+    def lengthOfLastWord(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        l = list(s.split(' '))
+        idx = -1
+        while len(l[idx]) == 0:
+            idx -= 1
+        return len(l[idx])
+
+
+the trick here is since we have a lot of white space tokens, we start iterating from the end and only when we find a word with len > 0, we return
+the length of the word

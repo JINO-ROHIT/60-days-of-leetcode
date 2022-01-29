@@ -1,0 +1,43 @@
+Problem Link - https://leetcode.com/problems/add-binary/
+
+class Solution(object):
+    def addBinary(self, a, b):
+        """
+        :type a: str
+        :type b: str
+        :rtype: str
+        """
+        dec_a = convert_dec(int(a))
+        dec_b = convert_dec(int(b))
+        s = dec_a + dec_b
+        if s == 0:
+            return '0'
+        return convert_bin(int(s))
+        
+def convert_dec(num):
+    c = 0
+    s = 0
+    while num > 0:
+        last_digit = num % 10
+        s += (last_digit * pow(2, c))
+        c += 1
+        num = num // 10
+    return s
+
+def convert_bin(num):
+    s = ''
+    orig = num
+    while orig > 1:
+        num = num // 2
+        s += str(orig - (num * 2))
+        orig = num
+        
+    if orig == 1:
+        s += str(1)
+    return s[::-1]
+        
+        
+
+        
+    
+    
